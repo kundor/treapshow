@@ -9,13 +9,17 @@ struct binTreeTeX {
     /*Fmt fmt;*/
     void output(TeXout& tex, Ptr n) const {
         tex << "node { \\textbf{" << n->v << "}"
-               "\\nodepart{second}" << n->k << "} ";
+               "\\nodepart{second}{\\small " << n->k << "}} ";
         if ((*n).*left) {
             tex << "child { ";
             output(tex, (*n).*left);
             tex << "}\n";
-        } else if ((*n).*right) {
+       /* } else if ((*n).*right) {
             tex << "child {}\n"; // empty child ok?
+			// This was to correctly place right children
+			// with no left sibling, but it turns out to be
+			// nicer without it
+			*/
         }
         if ((*n).*right) {
             tex << "child { ";
@@ -33,6 +37,7 @@ binTreeTeX<Node, Ptr/*, Fmt*/> autoTree(Ptr head, Ptr Node::* left, Ptr Node::* 
 
 template <class Node, class Ptr/*, class Fmt*/>
 TeXout& operator<<(TeXout& tex, const binTreeTeX<Node, Ptr>& t) {
+	tex.usepackage("tikz");
     tex.usetikzlibrary("shapes");
     tex << "\\begin{tikzpicture}[sibling distance=10em,"
            "every node/.style = {draw, align=center, shape=rectangle split,"

@@ -40,12 +40,12 @@ TeXout& TeXout::operator<<(char c) {
 }
 
 TeXout& TeXout::operator<<(double d) {
-    long i = std::lround(d*10);
+    long i = std::lround(d*1000);
     if (i < 0) {
         doc += '-';
         i *= -1;
     }
-    doc += std::to_string(i/10) + '.' + std::to_string(i%10);
+    doc += std::to_string(i/1000) + '.' + std::to_string(i%1000);
     // do fixed, setprecision(1) without stringstreams
     return *this;
 }
