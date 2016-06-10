@@ -1,4 +1,5 @@
 .*.swp
 treap
-macros.*
+macros*
+*.o
 
