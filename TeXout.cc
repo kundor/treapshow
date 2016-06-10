@@ -1,8 +1,9 @@
-#define _GLIBCXX_USE_C99 1
-#include <string>
+//#define _GLIBCXX_USE_C99 1
+//^Needed to get std::to_string on Android
 #include "TeXout.h"
 #include <cmath> // lround
 #include <ostream>
+#include <string>
 
 using std::to_string;
 
@@ -45,23 +46,23 @@ TeXout& TeXout::operator<<(double d) {
         doc += '-';
         i *= -1;
     }
-    doc += std::to_string(i/1000) + '.' + std::to_string(i%1000);
+    doc += to_string(i/1000) + '.' + to_string(i%1000);
     // do fixed, setprecision(1) without stringstreams
     return *this;
 }
 
 TeXout& TeXout::operator<<(int i) {
-    doc += std::to_string(i);
+    doc += to_string(i);
     return *this;
 }
 
 TeXout& TeXout::operator<<(unsigned u) {
-    doc += std::to_string(u);
+    doc += to_string(u);
     return *this;
 }
 
 TeXout& TeXout::operator<<(long unsigned u) {
-    doc += std::to_string(u);
+    doc += to_string(u);
     return *this;
 }
 
