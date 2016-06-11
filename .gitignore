@@ -2,4 +2,5 @@
 treap
 macros*
 *.o
-
+*.aux
+*.log
