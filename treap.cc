@@ -80,24 +80,26 @@ int main() {
     repeat (i,n) {
         int a; cin >> a;
         t = T::insert(t, i, a);
-		tex << autoTree(t, &T::l, &T::r);
+		tex << autoTree(t, &T::l, &T::r, "Insert " + std::to_string(a));
     }
     int m; cin >> m;
     while (m --) {
         int l, r; cin >> l >> r;
+        std::string msg("Move [");
+        msg += std::to_string(l) + ", " + std::to_string(r) + "] to start";
         -- l;
         shared_ptr<T> a, b, c;
         tie(a, c) = T::split(t, r);
         tie(a, b) = T::split(a, l);
         t = T::merge(T::merge(b, a), c);
-		tex << autoTree(t, &T::l, &T::r);
+		tex << autoTree(t, &T::l, &T::r, msg);
     }
     repeat (i,n) {
         if (i) cout << ' ';
         shared_ptr<T> u;
         tie(t, u) = T::erase(t, 0);
         cout << u->v;
-		if (t) tex << autoTree(t, &T::l, &T::r);
+		if (t) tex << autoTree(t, &T::l, &T::r, "Pop " + std::to_string(u->v));
     }
     cout << endl;
 

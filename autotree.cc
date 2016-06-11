@@ -14,7 +14,10 @@ struct binTreeTeX {
         tex << " { \\textbf{" << n->v << "}"
                "\\nodepart{second}{\\small " << n->k << "}} ";
         if ((*n).*left) {
-            tex << "\nchild { ";
+            tex << "\nchild";
+            if (!((*n).*right))
+                tex << "[xshift=-5em]";
+            tex << " { ";
             output(tex, (*n).*left);
             tex << '}';
        /* } else if ((*n).*right) {
@@ -25,7 +28,10 @@ struct binTreeTeX {
 			*/
         }
         if ((*n).*right) {
-            tex << "\nchild { ";
+            tex << "\nchild";
+            if (!((*n).*left))
+                tex << "[xshift=5em]";
+            tex << " { ";
             output(tex, (*n).*right);
             tex << '}';
         }
@@ -48,7 +54,7 @@ TeXout& operator<<(TeXout& tex, const binTreeTeX<Node, Ptr>& t) {
            "rectangle split parts=2, rounded corners}]\n";
     t.output(tex, t.head, true);
     if (!t.msg.empty())
-        tex << "\\node[above of=root] {" << t.msg << "};\n";
+        tex << "\\node[shape=rectangle,draw=none,above of=root] {" << t.msg << "};\n";
     tex << "\\end{tikzpicture}\n";
     return tex;
 }
