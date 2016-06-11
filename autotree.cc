@@ -6,14 +6,17 @@ struct binTreeTeX {
     Ptr head;
     Ptr Node::* left;
     Ptr Node::* right;
+    const char* msg;
     /*Fmt fmt;*/
-    void output(TeXout& tex, Ptr n) const {
-        tex << "node { \\textbf{" << n->v << "}"
+    void output(TeXout& tex, Ptr n, bool topnode = false) const {
+        if (topnode) tex << "\\node(root)";
+        else tex << "node";
+        tex << " { \\textbf{" << n->v << "}"
                "\\nodepart{second}{\\small " << n->k << "}} ";
         if ((*n).*left) {
-            tex << "child { ";
+            tex << "\nchild { ";
             output(tex, (*n).*left);
-            tex << "}\n";
+            tex << '}';
        /* } else if ((*n).*right) {
             tex << "child {}\n"; // empty child ok?
 			// This was to correctly place right children
@@ -22,17 +25,18 @@ struct binTreeTeX {
 			*/
         }
         if ((*n).*right) {
-            tex << "child { ";
+            tex << "\nchild { ";
             output(tex, (*n).*right);
-            tex << "}\n";
+            tex << '}';
         }
+        tex << (topnode ? ";\n" : " ");
     }
 };
 
 
 template <class Ptr, typename Node = decltype(*std::declval<Ptr>())/*, class Fmt*/>
-binTreeTeX<Node, Ptr/*, Fmt*/> autoTree(Ptr head, Ptr Node::* left, Ptr Node::* right/*, Fmt fmt*/) {
-    return {head, left, right/*, fmt*/};
+binTreeTeX<Node, Ptr/*, Fmt*/> autoTree(Ptr head, Ptr Node::* left, Ptr Node::* right, const char* msg = nullptr/*, Fmt fmt*/) {
+    return {head, left, right, msg};
 }
 
 template <class Node, class Ptr/*, class Fmt*/>
@@ -41,9 +45,10 @@ TeXout& operator<<(TeXout& tex, const binTreeTeX<Node, Ptr>& t) {
     tex.usetikzlibrary("shapes");
     tex << "\\begin{tikzpicture}[sibling distance=10em,"
            "every node/.style = {draw, align=center, shape=rectangle split,"
-           "rectangle split parts=2, rounded corners}]\n"
-           "\\";
-    t.output(tex, t.head);
+           "rectangle split parts=2, rounded corners}]\n";
+    t.output(tex, t.head, true);
+    if (t.msg)
+        tex << "\\node[above of=root] {" << t.msg << "};\n";
     tex << "\\end{tikzpicture}\n";
     return tex;
 }

@@ -2,71 +2,85 @@
 \usetikzlibrary{shapes}
 \begin{document}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} ;\end{tikzpicture}
+\node(root) { \textbf{1}\nodepart{second}{\small 0.35}} ;
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} child { node { \textbf{2}\nodepart{second}{\small 0.555}} }
-;\end{tikzpicture}
+\node(root) { \textbf{2}\nodepart{second}{\small 0.802}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.35}}  };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} child { node { \textbf{2}\nodepart{second}{\small 0.555}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} }
-}
-;\end{tikzpicture}
+\node(root) { \textbf{3}\nodepart{second}{\small 0.849}} 
+child { node { \textbf{2}\nodepart{second}{\small 0.802}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.35}}  } };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} child { node { \textbf{2}\nodepart{second}{\small 0.555}} child { node { \textbf{4}\nodepart{second}{\small 0.394}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} }
-}
-}
-;\end{tikzpicture}
+\node(root) { \textbf{3}\nodepart{second}{\small 0.849}} 
+child { node { \textbf{2}\nodepart{second}{\small 0.802}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.35}}  } }
+child { node { \textbf{4}\nodepart{second}{\small 0.125}}  };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} child { node { \textbf{2}\nodepart{second}{\small 0.555}} child { node { \textbf{4}\nodepart{second}{\small 0.394}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} }
-child { node { \textbf{5}\nodepart{second}{\small 0.220}} }
-}
-}
-;\end{tikzpicture}
+\node(root) { \textbf{3}\nodepart{second}{\small 0.849}} 
+child { node { \textbf{2}\nodepart{second}{\small 0.802}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.35}}  } }
+child { node { \textbf{5}\nodepart{second}{\small 0.165}} 
+child { node { \textbf{4}\nodepart{second}{\small 0.125}}  } };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} child { node { \textbf{6}\nodepart{second}{\small 0.703}} child { node { \textbf{2}\nodepart{second}{\small 0.555}} child { node { \textbf{4}\nodepart{second}{\small 0.394}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} }
-child { node { \textbf{5}\nodepart{second}{\small 0.220}} }
-}
-}
-}
-;\end{tikzpicture}
+\node(root) { \textbf{6}\nodepart{second}{\small 0.932}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.849}} 
+child { node { \textbf{2}\nodepart{second}{\small 0.802}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.35}}  } }
+child { node { \textbf{5}\nodepart{second}{\small 0.165}} 
+child { node { \textbf{4}\nodepart{second}{\small 0.125}}  } } };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} child { node { \textbf{4}\nodepart{second}{\small 0.394}} child { node { \textbf{5}\nodepart{second}{\small 0.220}} }
-}
-child { node { \textbf{6}\nodepart{second}{\small 0.703}} child { node { \textbf{2}\nodepart{second}{\small 0.555}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} }
-}
-}
-;\end{tikzpicture}
+\node(root) { \textbf{6}\nodepart{second}{\small 0.932}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.849}} 
+child { node { \textbf{2}\nodepart{second}{\small 0.802}} 
+child { node { \textbf{5}\nodepart{second}{\small 0.165}} 
+child { node { \textbf{4}\nodepart{second}{\small 0.125}}  }
+child { node { \textbf{1}\nodepart{second}{\small 0.35}}  } } } };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} child { node { \textbf{6}\nodepart{second}{\small 0.703}} child { node { \textbf{2}\nodepart{second}{\small 0.555}} child { node { \textbf{4}\nodepart{second}{\small 0.394}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} child { node { \textbf{5}\nodepart{second}{\small 0.220}} }
-}
-}
-}
-}
-;\end{tikzpicture}
+\node(root) { \textbf{6}\nodepart{second}{\small 0.932}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.849}} 
+child { node { \textbf{2}\nodepart{second}{\small 0.802}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.35}}  }
+child { node { \textbf{5}\nodepart{second}{\small 0.165}} 
+child { node { \textbf{4}\nodepart{second}{\small 0.125}}  } } } };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} child { node { \textbf{2}\nodepart{second}{\small 0.555}} child { node { \textbf{4}\nodepart{second}{\small 0.394}} }
-}
-child { node { \textbf{6}\nodepart{second}{\small 0.703}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} child { node { \textbf{5}\nodepart{second}{\small 0.220}} }
-}
-}
-;\end{tikzpicture}
+\node(root) { \textbf{6}\nodepart{second}{\small 0.932}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.849}} 
+child { node { \textbf{2}\nodepart{second}{\small 0.802}} 
+child { node { \textbf{5}\nodepart{second}{\small 0.165}} 
+child { node { \textbf{4}\nodepart{second}{\small 0.125}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.35}}  } } } } };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} child { node { \textbf{4}\nodepart{second}{\small 0.394}} }
-child { node { \textbf{6}\nodepart{second}{\small 0.703}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} child { node { \textbf{5}\nodepart{second}{\small 0.220}} }
-}
-}
-;\end{tikzpicture}
+\node(root) { \textbf{6}\nodepart{second}{\small 0.932}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.849}} 
+child { node { \textbf{5}\nodepart{second}{\small 0.165}} 
+child { node { \textbf{4}\nodepart{second}{\small 0.125}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.35}}  } } } };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{1}\nodepart{second}{\small 0.887}} child { node { \textbf{6}\nodepart{second}{\small 0.703}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} child { node { \textbf{5}\nodepart{second}{\small 0.220}} }
-}
-}
-;\end{tikzpicture}
+\node(root) { \textbf{6}\nodepart{second}{\small 0.932}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.849}} 
+child { node { \textbf{5}\nodepart{second}{\small 0.165}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.35}}  } } };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{6}\nodepart{second}{\small 0.703}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} child { node { \textbf{5}\nodepart{second}{\small 0.220}} }
-}
-;\end{tikzpicture}
+\node(root) { \textbf{6}\nodepart{second}{\small 0.932}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.849}} 
+child { node { \textbf{5}\nodepart{second}{\small 0.165}}  } };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{6}\nodepart{second}{\small 0.703}} child { node { \textbf{3}\nodepart{second}{\small 0.347}} }
-;\end{tikzpicture}
+\node(root) { \textbf{6}\nodepart{second}{\small 0.932}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.849}}  };
+\end{tikzpicture}
 \begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node { \textbf{6}\nodepart{second}{\small 0.703}} ;\end{tikzpicture}
+\node(root) { \textbf{6}\nodepart{second}{\small 0.932}} ;
+\end{tikzpicture}
 \end{document}
