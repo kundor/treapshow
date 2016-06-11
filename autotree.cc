@@ -6,7 +6,7 @@ struct binTreeTeX {
     Ptr head;
     Ptr Node::* left;
     Ptr Node::* right;
-    const char* msg;
+    const std::string& msg;
     /*Fmt fmt;*/
     void output(TeXout& tex, Ptr n, bool topnode = false) const {
         if (topnode) tex << "\\node(root)";
@@ -35,7 +35,7 @@ struct binTreeTeX {
 
 
 template <class Ptr, typename Node = decltype(*std::declval<Ptr>())/*, class Fmt*/>
-binTreeTeX<Node, Ptr/*, Fmt*/> autoTree(Ptr head, Ptr Node::* left, Ptr Node::* right, const char* msg = nullptr/*, Fmt fmt*/) {
+binTreeTeX<Node, Ptr/*, Fmt*/> autoTree(Ptr head, Ptr Node::* left, Ptr Node::* right, const std::string& msg = ""/*, Fmt fmt*/) {
     return {head, left, right, msg};
 }
 
@@ -47,7 +47,7 @@ TeXout& operator<<(TeXout& tex, const binTreeTeX<Node, Ptr>& t) {
            "every node/.style = {draw, align=center, shape=rectangle split,"
            "rectangle split parts=2, rounded corners}]\n";
     t.output(tex, t.head, true);
-    if (t.msg)
+    if (!t.msg.empty())
         tex << "\\node[above of=root] {" << t.msg << "};\n";
     tex << "\\end{tikzpicture}\n";
     return tex;
