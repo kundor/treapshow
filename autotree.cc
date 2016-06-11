@@ -14,26 +14,20 @@ struct binTreeTeX {
         tex << " { \\textbf{" << n->v << "}"
                "\\nodepart{second}{\\small " << n->k << "}} ";
         if ((*n).*left) {
-            tex << "\nchild";
-            if (!((*n).*right))
-                tex << "[xshift=-5em]";
-            tex << " { ";
+            tex << "\nchild { ";
             output(tex, (*n).*left);
             tex << '}';
-       /* } else if ((*n).*right) {
-            tex << "child {}\n"; // empty child ok?
-			// This was to correctly place right children
-			// with no left sibling, but it turns out to be
-			// nicer without it
-			*/
+        } else if ((*n).*right) {
+            tex << "\nchild[missing] {}";
+			// This is to correctly place right children with no sibling
         }
         if ((*n).*right) {
-            tex << "\nchild";
-            if (!((*n).*left))
-                tex << "[xshift=5em]";
-            tex << " { ";
+            tex << "\nchild { ";
             output(tex, (*n).*right);
             tex << '}';
+        } else if ((*n).*left) {
+            tex << "\nchild[missing] {}";
+			// This is to correctly place left children with no sibling
         }
         tex << (topnode ? ";\n" : " ");
     }
@@ -49,7 +43,10 @@ template <class Node, class Ptr/*, class Fmt*/>
 TeXout& operator<<(TeXout& tex, const binTreeTeX<Node, Ptr>& t) {
 	tex.usepackage("tikz");
     tex.usetikzlibrary("shapes");
-    tex << "\\begin{tikzpicture}[sibling distance=10em,"
+    tex << "\\begin{tikzpicture}[level 1/.style={sibling distance=12em},"
+           "level 2/.style={sibling distance=7em},"
+           "level 3/.style={sibling distance=4em},"
+           "level 4/.style={sibling distance=2em},"
            "every node/.style = {draw, align=center, shape=rectangle split,"
            "rectangle split parts=2, rounded corners}]\n";
     t.output(tex, t.head, true);

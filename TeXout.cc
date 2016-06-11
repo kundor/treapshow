@@ -46,8 +46,11 @@ TeXout& TeXout::operator<<(double d) {
         doc += '-';
         i *= -1;
     }
-    doc += to_string(i/1000) + '.' + to_string(i%1000);
-    // do fixed, setprecision(1) without stringstreams
+    std::string dec = to_string(i%1000);
+    while (dec.size() < 3)
+        dec = "0" + dec;
+    doc += to_string(i/1000) + '.' + dec;
+    // do fixed, setprecision(3) without stringstreams
     return *this;
 }
 

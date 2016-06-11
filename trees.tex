@@ -1,100 +1,130 @@
 \documentclass[tikz]{standalone}
 \usetikzlibrary{shapes}
 \begin{document}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{1}\nodepart{second}{\small 0.126}} ;
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{1}\nodepart{second}{\small 0.186}} ;
 \node[shape=rectangle,draw=none,above of=root] {Insert 1};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{2}\nodepart{second}{\small 0.726}} 
-child[xshift=-5em] { node { \textbf{1}\nodepart{second}{\small 0.126}}  };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{1}\nodepart{second}{\small 0.186}} 
+child[missing] {}
+child { node { \textbf{2}\nodepart{second}{\small 0.008}}  };
 \node[shape=rectangle,draw=none,above of=root] {Insert 2};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{2}\nodepart{second}{\small 0.726}} 
-child { node { \textbf{1}\nodepart{second}{\small 0.126}}  }
-child { node { \textbf{3}\nodepart{second}{\small 0.335}}  };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{3}\nodepart{second}{\small 0.790}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.186}} 
+child[missing] {}
+child { node { \textbf{2}\nodepart{second}{\small 0.008}}  } }
+child[missing] {};
 \node[shape=rectangle,draw=none,above of=root] {Insert 3};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{2}\nodepart{second}{\small 0.726}} 
-child { node { \textbf{1}\nodepart{second}{\small 0.126}}  }
-child { node { \textbf{4}\nodepart{second}{\small 0.678}} 
-child[xshift=-5em] { node { \textbf{3}\nodepart{second}{\small 0.335}}  } };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{3}\nodepart{second}{\small 0.790}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.186}} 
+child[missing] {}
+child { node { \textbf{2}\nodepart{second}{\small 0.008}}  } }
+child { node { \textbf{4}\nodepart{second}{\small 0.776}}  };
 \node[shape=rectangle,draw=none,above of=root] {Insert 4};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{2}\nodepart{second}{\small 0.726}} 
-child { node { \textbf{1}\nodepart{second}{\small 0.126}}  }
-child { node { \textbf{4}\nodepart{second}{\small 0.678}} 
-child { node { \textbf{3}\nodepart{second}{\small 0.335}}  }
-child { node { \textbf{5}\nodepart{second}{\small 0.302}}  } };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{3}\nodepart{second}{\small 0.790}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.186}} 
+child[missing] {}
+child { node { \textbf{2}\nodepart{second}{\small 0.008}}  } }
+child { node { \textbf{4}\nodepart{second}{\small 0.776}} 
+child[missing] {}
+child { node { \textbf{5}\nodepart{second}{\small 0.439}}  } };
 \node[shape=rectangle,draw=none,above of=root] {Insert 5};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{2}\nodepart{second}{\small 0.726}} 
-child { node { \textbf{1}\nodepart{second}{\small 0.126}}  }
-child { node { \textbf{4}\nodepart{second}{\small 0.678}} 
-child { node { \textbf{3}\nodepart{second}{\small 0.335}}  }
-child { node { \textbf{6}\nodepart{second}{\small 0.595}} 
-child[xshift=-5em] { node { \textbf{5}\nodepart{second}{\small 0.302}}  } } };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{6}\nodepart{second}{\small 0.812}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.790}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.186}} 
+child[missing] {}
+child { node { \textbf{2}\nodepart{second}{\small 0.008}}  } }
+child { node { \textbf{4}\nodepart{second}{\small 0.776}} 
+child[missing] {}
+child { node { \textbf{5}\nodepart{second}{\small 0.439}}  } } }
+child[missing] {};
 \node[shape=rectangle,draw=none,above of=root] {Insert 6};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{2}\nodepart{second}{\small 0.726}} 
-child { node { \textbf{4}\nodepart{second}{\small 0.678}} 
-child[xshift=5em] { node { \textbf{5}\nodepart{second}{\small 0.302}} 
-child[xshift=5em] { node { \textbf{1}\nodepart{second}{\small 0.126}}  } } }
-child { node { \textbf{6}\nodepart{second}{\small 0.595}} 
-child[xshift=-5em] { node { \textbf{3}\nodepart{second}{\small 0.335}}  } };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{6}\nodepart{second}{\small 0.812}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.790}} 
+child { node { \textbf{4}\nodepart{second}{\small 0.776}} 
+child[missing] {}
+child { node { \textbf{5}\nodepart{second}{\small 0.439}} 
+child[missing] {}
+child { node { \textbf{1}\nodepart{second}{\small 0.186}} 
+child[missing] {}
+child { node { \textbf{2}\nodepart{second}{\small 0.008}}  } } } }
+child[missing] {} }
+child[missing] {};
 \node[shape=rectangle,draw=none,above of=root] {Move [4, 5] to start};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{2}\nodepart{second}{\small 0.726}} 
-child { node { \textbf{1}\nodepart{second}{\small 0.126}}  }
-child { node { \textbf{4}\nodepart{second}{\small 0.678}} 
-child[xshift=5em] { node { \textbf{6}\nodepart{second}{\small 0.595}} 
-child[xshift=-5em] { node { \textbf{3}\nodepart{second}{\small 0.335}} 
-child[xshift=-5em] { node { \textbf{5}\nodepart{second}{\small 0.302}}  } } } };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{6}\nodepart{second}{\small 0.812}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.790}} 
+child { node { \textbf{4}\nodepart{second}{\small 0.776}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.186}} 
+child[missing] {}
+child { node { \textbf{2}\nodepart{second}{\small 0.008}}  } }
+child { node { \textbf{5}\nodepart{second}{\small 0.439}}  } }
+child[missing] {} }
+child[missing] {};
 \node[shape=rectangle,draw=none,above of=root] {Move [3, 4] to start};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{2}\nodepart{second}{\small 0.726}} 
-child[xshift=5em] { node { \textbf{4}\nodepart{second}{\small 0.678}} 
-child[xshift=5em] { node { \textbf{6}\nodepart{second}{\small 0.595}} 
-child[xshift=-5em] { node { \textbf{3}\nodepart{second}{\small 0.335}} 
-child[xshift=-5em] { node { \textbf{5}\nodepart{second}{\small 0.302}} 
-child[xshift=-5em] { node { \textbf{1}\nodepart{second}{\small 0.126}}  } } } } };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{6}\nodepart{second}{\small 0.812}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.790}} 
+child { node { \textbf{4}\nodepart{second}{\small 0.776}} 
+child { node { \textbf{2}\nodepart{second}{\small 0.008}}  }
+child { node { \textbf{5}\nodepart{second}{\small 0.439}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.186}}  }
+child[missing] {} } }
+child[missing] {} }
+child[missing] {};
 \node[shape=rectangle,draw=none,above of=root] {Move [2, 3] to start};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{4}\nodepart{second}{\small 0.678}} 
-child[xshift=5em] { node { \textbf{6}\nodepart{second}{\small 0.595}} 
-child[xshift=-5em] { node { \textbf{3}\nodepart{second}{\small 0.335}} 
-child[xshift=-5em] { node { \textbf{5}\nodepart{second}{\small 0.302}} 
-child[xshift=-5em] { node { \textbf{1}\nodepart{second}{\small 0.126}}  } } } };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{6}\nodepart{second}{\small 0.812}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.790}} 
+child { node { \textbf{4}\nodepart{second}{\small 0.776}} 
+child[missing] {}
+child { node { \textbf{5}\nodepart{second}{\small 0.439}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.186}}  }
+child[missing] {} } }
+child[missing] {} }
+child[missing] {};
 \node[shape=rectangle,draw=none,above of=root] {Pop 2};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{6}\nodepart{second}{\small 0.595}} 
-child[xshift=-5em] { node { \textbf{3}\nodepart{second}{\small 0.335}} 
-child[xshift=-5em] { node { \textbf{5}\nodepart{second}{\small 0.302}} 
-child[xshift=-5em] { node { \textbf{1}\nodepart{second}{\small 0.126}}  } } };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{6}\nodepart{second}{\small 0.812}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.790}} 
+child { node { \textbf{5}\nodepart{second}{\small 0.439}} 
+child { node { \textbf{1}\nodepart{second}{\small 0.186}}  }
+child[missing] {} }
+child[missing] {} }
+child[missing] {};
 \node[shape=rectangle,draw=none,above of=root] {Pop 4};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{6}\nodepart{second}{\small 0.595}} 
-child[xshift=-5em] { node { \textbf{3}\nodepart{second}{\small 0.335}} 
-child[xshift=-5em] { node { \textbf{5}\nodepart{second}{\small 0.302}}  } };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{6}\nodepart{second}{\small 0.812}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.790}} 
+child { node { \textbf{5}\nodepart{second}{\small 0.439}}  }
+child[missing] {} }
+child[missing] {};
 \node[shape=rectangle,draw=none,above of=root] {Pop 1};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{6}\nodepart{second}{\small 0.595}} 
-child[xshift=-5em] { node { \textbf{3}\nodepart{second}{\small 0.335}}  };
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{6}\nodepart{second}{\small 0.812}} 
+child { node { \textbf{3}\nodepart{second}{\small 0.790}}  }
+child[missing] {};
 \node[shape=rectangle,draw=none,above of=root] {Pop 5};
 \end{tikzpicture}
-\begin{tikzpicture}[sibling distance=10em,every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
-\node(root) { \textbf{6}\nodepart{second}{\small 0.595}} ;
+\begin{tikzpicture}[level 1/.style={sibling distance=12em},level 2/.style={sibling distance=7em},level 3/.style={sibling distance=4em},level 4/.style={sibling distance=2em},every node/.style = {draw, align=center, shape=rectangle split,rectangle split parts=2, rounded corners}]
+\node(root) { \textbf{6}\nodepart{second}{\small 0.812}} ;
 \node[shape=rectangle,draw=none,above of=root] {Pop 3};
 \end{tikzpicture}
 \end{document}
