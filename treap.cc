@@ -1,3 +1,5 @@
+#define _GLIBCXX_USE_C99 1
+//^Needed to get std::to_string on Android
 #include <iostream>
 #include <fstream>
 #include <tuple>
@@ -75,6 +77,7 @@ struct treap {
 typedef treap<int> T;
 int main() {
 	TeXout tex;
+    tex.usetikzlibrary("positioning");
     int n; cin >> n;
     shared_ptr<T> t;
     repeat (i,n) {
@@ -91,15 +94,21 @@ int main() {
         shared_ptr<T> a, b, c;
         tie(a, c) = T::split(t, r);
         tie(a, b) = T::split(a, l);
+		tex << "\\begin{tikzpicture}\n"
+		       "\\node (b) {" << autoTree(b, &T::l, &T::r) << "};\n"
+			   "\\node[left=of b] {" << autoTree(a, &T::l, &T::r) << "};\n"
+			   "\\node[right=of b] {" << autoTree(c, &T::l, &T::r) << "};\n"
+			   "\\node[above=of b] {" << msg << "};\n";
         t = T::merge(T::merge(b, a), c);
-		tex << autoTree(t, &T::l, &T::r, msg);
+		tex << "\\node[below=of b] {" << autoTree(t, &T::l, &T::r) << "};\n"
+		       "\\end{tikzpicture}\n";
     }
     repeat (i,n) {
         if (i) cout << ' ';
         shared_ptr<T> u;
         tie(t, u) = T::erase(t, 0);
         cout << u->v;
-		if (t) tex << autoTree(t, &T::l, &T::r, "Pop " + std::to_string(u->v));
+		//if (t) tex << autoTree(t, &T::l, &T::r, "Pop " + std::to_string(u->v));
     }
     cout << endl;
 
