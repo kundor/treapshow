@@ -1,4 +1,4 @@
-#define _GLIBCXX_USE_C99 1
+//#define _GLIBCXX_USE_C99 1
 //^Needed to get std::to_string on Android
 #include <iostream>
 #include <fstream>
@@ -78,6 +78,7 @@ typedef treap<int> T;
 int main() {
 	TeXout tex;
     tex.usetikzlibrary("positioning");
+    tex.classopt("border=2pt");
     int n; cin >> n;
     shared_ptr<T> t;
     repeat (i,n) {
